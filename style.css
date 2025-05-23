@@ -1,0 +1,89 @@
+/* Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fbe8a6, #ffb4a2);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Navbar */
+.navbar { width: 100%; background: #6d6875; }
+.nav-tabs { list-style: none; display: flex; justify-content: center; }
+.nav-tabs .tab {
+  padding: 1rem 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.nav-tabs .tab:hover,
+.nav-tabs .tab.active { background: #a66dd4; }
+
+/* Sections */
+.section { display: none; padding: 2rem; width: 100%; max-width: 800px; text-align: center; }
+.section.active { display: block; }
+
+/* Buttons */
+.btn {
+  background: #ff9f1c;
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.05); }
+
+/* Info Bar */
+.info-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Game Board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.card {
+  width: 100px;
+  height: 140px;
+  background: #333;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  perspective: 600px;
+}
+.card-inner {
+  position: absolute;
+  width: 100%; height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.card.flipped .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+}
+.card-front {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #444;
+}
+.card-back {
+  background: url('https://i.imgur.com/Y6Vn6bF.png') center/cover;
+  transform: rotateY(180deg);
+}
